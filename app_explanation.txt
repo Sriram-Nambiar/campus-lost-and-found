@@ -1,0 +1,50 @@
+Campus Lost and Found Application - Tech Stack and Features
+
+--- TECHNOLOGY STACK ---
+
+Frontend:
+- React (bootstrapped with Vite)
+- React Router for navigation
+- Vanilla CSS for styling (App.css, index.css)
+- Lucide React for UI icons
+
+Backend:
+- Node.js with Express.js server
+- SQLite database (local file dev.db)
+- Prisma ORM for database operations
+- Multer for handling file/image uploads
+- Jimp for perceptual image hashing
+- PDFKit and QRCode for generating printable flyers
+- express-validator for input sanitization and security
+
+--- KEY FEATURES ---
+
+1. User Profiles & Contact Management:
+Items are linked to user profiles so users can coordinate returning items. Currently uses a mock in-memory map.
+
+2. Secure Media Uploads:
+Users can upload photos of lost or found items. The backend stores them locally and renames them using a cryptographic MD5 hash to prevent filename collisions.
+
+3. Smart Categorization & Advanced Search:
+The backend allows filtering by category, location, and status. The frontend has a highly efficient custom hash-map search index that matches keywords against item names, descriptions, and categories in real-time.
+
+4. Automated Image Matching (Perceptual Hashing):
+When an image is uploaded, the backend uses Jimp to generate a 64-bit perceptual hash. Users can click a "Find Matches" button to compare their item's hash against opposite items (Lost vs. Found) and see a similarity percentage.
+
+5. Interactive Spatial Mapping:
+Items tagged with latitude and longitude coordinates are processed by the backend into geographic clusters and rendered on an interactive frontend Campus Map.
+
+6. Automated Expiry & Archiving:
+A scheduled cron job runs every hour on the backend, automatically moving ACTIVE items older than 30 days to an ARCHIVED status to keep the database clean.
+
+7. Domain-Restricted Auth Guard:
+An Express middleware ensures only authorized campus members can post items by validating that their email address ends with a specific university domain (e.g., @university.edu).
+
+8. Claim Verification Workflows (Hidden Descriptor):
+When posting a found item, a user can add a "hidden descriptor" (e.g., "small scratch on back"). To claim the item, the owner must guess this secret detail to verify ownership before the item is marked as PENDING_DELIVERY.
+
+9. Input Sanitization & Validation:
+To protect against XSS and injection attacks, express-validator middleware systematically escapes and sanitizes all incoming text fields before saving them to the database.
+
+10. Dynamic PDF Flyer Generator:
+The app can dynamically generate a printable A4 flyer for any item. It uses PDFKit to assemble the item's details, uploaded image, contact info, and a dynamically generated QR Code that links back to the web app.

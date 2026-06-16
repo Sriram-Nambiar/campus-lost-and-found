@@ -1,0 +1,29 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "bun run index.js",
+    "dev": "bun --watch index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@prisma/client": "^5.22.0",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "express-validator": "^7.3.2",
+    "jimp": "^1.6.1",
+    "multer": "^2.2.0",
+    "pdfkit": "^0.19.1",
+    "qrcode": "^1.5.4",
+    "uuid": "^14.0.0"
+  },
+  "devDependencies": {
+    "prisma": "^5.22.0"
+  }
+}

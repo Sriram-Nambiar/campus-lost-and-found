@@ -1,0 +1,27 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Item {
+  id               String   @id @default(uuid())
+  type             String   // 'LOST' or 'FOUND'
+  name             String
+  description      String
+  location         String
+  date             DateTime // Date it was lost or found
+  createdAt        DateTime @default(now())
+  claimed          Boolean  @default(false)
+  imageUrl         String?
+  userId           String?  // F1: Link to in-memory profile
+  category         String?  // F3: Smart categorization
+  status           String   @default("ACTIVE") // F3, F6: ACTIVE, ARCHIVED, PENDING_DELIVERY
+  imageHash        String?  // F4: Perceptual matching hash
+  lat              Float?   // F5: Spatial clustering
+  lng              Float?   // F5: Spatial clustering
+  hiddenDescriptor String?  // F8: Claim verification
+}
