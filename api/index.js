@@ -14,6 +14,9 @@ const prisma = new PrismaClient();
 const app = express();
 
 app.use(cors());
+app.use(cors({
+  origin: 'https://campus-lost-and-found-amber.vercel.app' 
+}));
 app.use(express.json());
 
 // ==========================================
@@ -339,7 +342,7 @@ app.delete('/api/items/:id/claim', async (req, res) => {
 // FEATURE 10: Dynamic PDF & QR Code Flyer Generator
 app.get('/api/items/:id/flyer', async (req, res) => {
   const { id } = req.params;
-  const baseUrl = req.query.baseUrl || 'http://localhost:5173';
+const baseUrl = req.query.baseUrl || 'https://campus-lost-and-found-amber.vercel.app';
   try {
     const item = await prisma.item.findUnique({ where: { id } });
     if (!item) return res.status(404).json({ error: 'Item not found' });
