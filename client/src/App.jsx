@@ -9,8 +9,8 @@ import CampusMap from './components/CampusMap';
 import ImageSearchModal from './components/ImageSearchModal';
 import { PlusCircle, X, Search, Camera } from 'lucide-react';
 
-const API_URL = 'http://localhost:5000/api/items';
-const API_BASE = 'http://localhost:5000';
+const API_BASE = 'https://campus-lost-and-found-7fl0.onrender.com';
+const API_URL = `${API_BASE}/api/items`;
 
 function App() {
   const [items, setItems] = useState([]);
