@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Camera, X, Upload, Loader, Image as ImageIcon } from 'lucide-react';
 
-const API_BASE = 'http://localhost:5000';
+const API_BASE = 'https://campus-lost-and-found-7fl0.onrender.com';
 const API_URL = `${API_BASE}/api/items`;
 
 const ImageSearchModal = ({ onClose, onSelectItem }) => {
