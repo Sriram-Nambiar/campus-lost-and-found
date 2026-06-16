@@ -15,10 +15,11 @@ const app = express();
 
 app.use(cors());
 app.use(cors({
-  origin: 'https://campus-lost-and-found-amber.vercel.app' 
+  origin: 'https://campus-lost-and-found-amber.vercel.app',
+  credentials: true // Add this if you plan to use cookies or authorization headers
 }));
-app.use(express.json());
 
+app.use(express.json());
 // ==========================================
 // FEATURE 1: User Profile & Public Contact
 // ==========================================
