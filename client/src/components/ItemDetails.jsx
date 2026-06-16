@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { MapPin, Calendar, Mail, MessageCircle, Tag, Shield, ArrowLeft, FileText, CheckCircle } from 'lucide-react';
 import { format, formatDistanceToNow } from 'date-fns';
 
-const API_BASE = 'http://localhost:5000';
+const API_BASE = 'https://campus-lost-and-found-7fl0.onrender.com';
 const API_URL = `${API_BASE}/api/items`;
 
 const ItemDetails = () => {

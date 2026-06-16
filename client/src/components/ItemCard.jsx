@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { MapPin, Calendar, CheckCircle, FileText, Search, Mail, MessageCircle, Tag, Shield, X } from 'lucide-react';
 import { format, formatDistanceToNow, differenceInHours } from 'date-fns';
 
-const API_BASE_URL = 'http://localhost:5000';
+const API_BASE_URL = 'https://campus-lost-and-found-7fl0.onrender.com';
 
 const ItemCard = ({ item, onClaim, onFindMatches }) => {
   const isRecent = differenceInHours(new Date(), new Date(item.createdAt)) < 24;
